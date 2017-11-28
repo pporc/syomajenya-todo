@@ -1,12 +1,10 @@
 import React from 'react';
 import './number.scss';
 
-const getAllNumbers = (...props) => {
+const getAllNumbers = (from, to, odd, even) => {
 	const numbers = [];
-	const from = props[0];
-	const to = props[1];
-	const sort = props[2] ? 'odd' :
-				props[3] ? 'even' : false;
+	const sort = odd ? 'odd' :
+				even ? 'even' : false;
 	let list;
 
 	for (let i = from; i <= to; i++) {
@@ -24,11 +22,11 @@ const getAllNumbers = (...props) => {
 	return list;
 };
 
-export const Number = (props) => (
+export const Number = ({ from, to, odd, even }) => (
 	<section className="number">
 		<ul>
 			{
-				getAllNumbers(props.from, props.to, props.odd, props.even).map( item => (
+				getAllNumbers(from, to, odd, even).map( item => (
 					<li key={item}>
 						{item}
 					</li>

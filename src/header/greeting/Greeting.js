@@ -12,8 +12,8 @@ const getCreation = () => {
 	return 'Good evening';
 }
 
-export const Greeting = (props) => (
+export const Greeting = ({ name }) => (
 	<span className="greeting">
-		{getCreation()}, {props.name || 'User'}
+		{getCreation()}, {name || 'User'}
 	</span>
 );
