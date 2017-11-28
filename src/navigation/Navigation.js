@@ -1,18 +1,13 @@
 import React from 'react';
 import './navigation.scss';
 
-const items = [
-	{label: 'Home', id: 'asdfasdfa4'},
-	{label: 'Contacts', id: 'asdasdfdff'}
-];
-
-export const Navigation = () => (
+export const Navigation = props => (
 	<nav className="main-nav">
 		<ul>
 			{
-				items.map( item => (
-					<li key={item.id}>
-						<a href={`/${item.label.toLowerCase()}`}>{item.label}</a>
+				props.list.map( item => (
+					<li key={item}>
+						<a href={`/${item.toLowerCase()}`}>{item}</a>
 					</li>
 				))
 			}

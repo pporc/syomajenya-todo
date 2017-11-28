@@ -14,6 +14,7 @@ export const App = (
 		<Error 
 			text="some text"
 			color="red"
+			display="none"
 		/>
 		<Main />
 		<Footer />
