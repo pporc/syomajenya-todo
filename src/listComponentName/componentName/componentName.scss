@@ -1,0 +1,12 @@
+@import "../../variables";
+
+.componentName {
+	margin: 10px 10px;
+	border: 1px solid #000;
+	ul {
+		list-style: none;
+		padding: $common-paddings;
+		margin: 0;
+		
+	}
+}
