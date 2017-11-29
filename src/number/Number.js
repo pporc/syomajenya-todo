@@ -9,11 +9,15 @@ const getAllNumbers = (from, to, odd, even) => {
 	};
 
 	if (odd && even) {
-		list = list;
-	} else if (odd) {
-		list = list.filter( num => num % 2);
-	} else if (even){
-		list = list.filter( num => !(num % 2));
+		return list;
+	}
+
+	if (odd) {
+		return list.filter( num => num % 2);
+	}
+
+	if (even){
+		return list.filter( num => !(num % 2));
 	}
 
 	return list;
