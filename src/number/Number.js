@@ -2,23 +2,20 @@ import React from 'react';
 import './number.scss';
 
 const getAllNumbers = (from, to, odd, even) => {
-	const numbers = [];
-	const sort = odd ? 'odd' :
-				even ? 'even' : false;
-	let list;
+	let list = [];
 
 	for (let i = from; i <= to; i++) {
-		numbers.push(i);	
+		list.push(i);	
 	};
 
-	if (sort == 'even') {
-		list = numbers.filter( num => !(num % 2))
-	} else if (sort == 'odd') {
-		list = numbers.filter( num => num % 2)
-	} else {
-		list = numbers;
+	if (odd && even) {
+		list = list;
+	} else if (odd) {
+		list = list.filter( num => num % 2);
+	} else if (even){
+		list = list.filter( num => !(num % 2));
 	}
-	
+
 	return list;
 };
 
