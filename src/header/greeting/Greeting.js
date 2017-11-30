@@ -1,5 +1,3 @@
-import React from 'react';
-
 const getCreation = () => {
 	const hours = new Date().getHours();
 
