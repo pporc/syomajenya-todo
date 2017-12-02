@@ -34,12 +34,12 @@ module.exports = {
 
   module: {
     rules: [
-      // {
-      //     enforce: 'pre',
-      //     test: /src.*\.js$/,
-      //     exclude: /node_modules/,
-      //     loader: 'eslint-loader',
-      // },
+      {
+          enforce: 'pre',
+          test: /src.*\.js$/,
+          exclude: /node_modules/,
+          loader: 'eslint-loader',
+      },
 
       {
         test: /\.js$/,
