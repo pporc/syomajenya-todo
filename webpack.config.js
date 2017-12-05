@@ -4,18 +4,21 @@ const htmlPlugin = require('html-webpack-plugin');
 const textPlugin = require('extract-text-webpack-plugin');
 const args = require('yargs').argv;
 
-let styleLoader = ['style-loader', 'css-loader', 'sass-loader'];
+const styleLoader = ['style-loader', 'css-loader', 'sass-loader'];
 
 const plugins = [
-    new htmlPlugin({
-    	template: 'index.html'
-    }),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
-    new webpack.HotModuleReplacementPlugin(),
-    new textPlugin({
-	        filename: 'main.css',
-	        allChunks: true
-    })
+  new htmlPlugin({
+    template: 'index.html'
+  }),
+  new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
+  new webpack.HotModuleReplacementPlugin(),
+  new textPlugin({
+    filename: 'main.css',
+    allChunks: true
+  }),
+  new webpack.ProvidePlugin({
+    React: 'react'
+  })
 ];
 
 module.exports = {
