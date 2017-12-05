@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export class Mount extends React.Component {
   constructor(props) {
     super(props);
@@ -39,3 +41,5 @@ export class Mount extends React.Component {
     );
   }
 }
+
+Mount.propTypes = { code: PropTypes.number.isRequired };

@@ -17,7 +17,8 @@ const plugins = [
     allChunks: true
   }),
   new webpack.ProvidePlugin({
-    React: 'react'
+    React: 'react',
+    PropTypes: 'prop-types'
   })
 ];
 
@@ -46,7 +47,10 @@ module.exports = {
         exclude: path.resolve(__dirname, 'node_modules'),
         use: {
           loader: 'babel-loader',
-          options: { presets: ['env', 'react'] }
+          options: {
+            presets: ['env', 'react'],
+            plugins: ['transform-class-properties']
+          }
         }
       },
 
