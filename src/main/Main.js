@@ -5,17 +5,17 @@ import { Content } from './content';
 import { Number } from '../number';
 
 export class Main extends React.Component {
-	render () {
-		return (
-			<main className="main">
-				<Aside />
-				<Content />
-				<Number
-					from={3}
-					to={9}
-					odd
-				/>
-			</main>
-		);
-	}
+  render() {
+    return (
+      <main className="main">
+        <Aside />
+        <Content />
+        <Number
+          from={3}
+          to={9}
+          odd
+        />
+      </main>
+    );
+  }
 };

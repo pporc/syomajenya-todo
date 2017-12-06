@@ -1,6 +1,8 @@
 import { Navigation } from '../navigation';
 import { Greeting } from './greeting';
 import { Time } from '../time';
+import { Button } from '../button';
+
 import './header.scss';
 
 export class Header extends React.Component {
@@ -15,7 +17,7 @@ export class Header extends React.Component {
         <Navigation
           list={['Home', 'Products', 'Contacts']}
         />
-
+        <Button />
         <div>
           { show && <Time />}
 
