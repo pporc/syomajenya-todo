@@ -1,0 +1,8 @@
+@import "../../variables";
+
+.header {
+	background-color: $header-bg;
+	padding: $common-paddings;
+	display: flex;
+	justify-content: space-between;
+}

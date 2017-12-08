@@ -1,19 +1,12 @@
-import { Header } from './header';
-import { Main } from './main';
-import { Footer } from './footer';
-
-import { Error } from './error';
+import { Header } from 'partials/header';
+import { Main } from 'partials/main';
+import { Footer } from 'partials/footer';
 
 import './app.scss';
 
 export const App = (
   <div>
     <Header />
-    <Error
-      text="some text"
-      color="red"
-      display="none"
-    />
     <Main />
     <Footer />
   </div>
