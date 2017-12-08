@@ -1,6 +1,6 @@
-import { Navigation } from '../navigation';
-import { Greeting } from './greeting';
-import { Time } from '../time';
+import { Navigation } from 'components/navigation';
+import { Greeting } from 'components/greeting';
+import { Time } from 'components/time';
 import './header.scss';
 
 export class Header extends React.Component {
