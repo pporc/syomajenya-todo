@@ -1,25 +1,21 @@
-export const TabNav = ({ list, select }) => {
-  const onClick = (e, id) => {
-    select(id);
-    e.preventDefault();
-  };
+import './tab.scss';
 
-  return (
-    <nav className="nav-tab">
-      <ul> {list.map(el =>
-        (<li key={el.id}>
-          <a
-            href="#"
-            onClick={e => onClick(e, el.id)}
-          >
-            {el.title}
-          </a>
-        </li>))}
-      </ul>
-    </nav>);
-};
+export const TabNav = ({ children, select }) => (
+  <nav className="nav-tab">
+    <ul>
+      {children.map((el, index) =>
+        (
+          <li key={index}>
+            {
+              React.cloneElement(el, { select, index })
+            }
+          </li>
+        ))}
+    </ul>
+  </nav>
+);
 
-TabNav.propTypes = {
-  click: PropTypes.func.isRequired,
-  list: PropTypes.array.isRequired
-};
+// TabNav.propTypes = {
+//   click: PropTypes.func.isRequired,
+//   list: PropTypes.array.isRequired
+// };

@@ -33,13 +33,20 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
 
+  resolve: {
+    modules: [
+      path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'node_modules')
+    ]
+  },
+
   module: {
     rules: [
       {
-          enforce: 'pre',
-          test: /src.*\.js$/,
-          exclude: /node_modules/,
-          loader: 'eslint-loader',
+        enforce: 'pre',
+        test: /src.*\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
       },
 
       {
