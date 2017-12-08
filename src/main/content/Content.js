@@ -1,13 +1,17 @@
 import './content.scss';
 
 import { Persons } from '../Persons';
+import { Button } from '../../button';
+import { ShowText } from '../../showText';
+import { GeoLocation } from '../../geoLocation';
 
 export class Content extends React.Component {
   constructor() {
     super();
     this.state = {
       loading: false,
-      users: []
+      users: [],
+      posts: []
     };
   }
 
@@ -22,24 +26,43 @@ export class Content extends React.Component {
       .then(users => this.setState({ users, loading: false }));
   }
 
-  showUserInfo(user) {
-    alert(user.email);
+  getPosts = (id) => {
+    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
+      .then(response => response.json())
+      .then(posts => this.setState({ posts }));
+  }
+
+  showUserInfo = (user) => {
+    this.getPosts(user.id);
   }
 
   render() {
-    const { users, loading } = this.state;
+    const { users, loading, posts } = this.state;
     return (
       <section className="content">
-        <button onClick={this.getUsers}>
-          Get users
-        </button>
+        <div>
+          <button onClick={this.getUsers}>
+            Get users
+          </button>
 
-        <Persons
-          users={users}
-          clickHandler={this.showUserInfo}
-        />
-
-        { loading && <span>Loading...</span> }
+          <Persons
+            users={users}
+            clickHandler={this.showUserInfo}
+          />
+          { loading && <span>Loading...</span> }
+          <ul>
+            {posts.map(post => (
+              <li key={post.id}>
+                {post.body}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="buttons">
+          <Button />
+          <ShowText />
+          <GeoLocation />
+        </div>
       </section>
     );
   }

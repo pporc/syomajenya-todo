@@ -1,5 +1,5 @@
 export const Persons = ({ users, clickHandler }) => (
-  <ul>{users.map(user => (
+  <ul className="persons">{users.map(user => (
     <li
       key={user.id}
       onClick={() => clickHandler(user)}

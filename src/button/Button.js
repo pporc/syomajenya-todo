@@ -17,7 +17,7 @@ export class Button extends React.Component {
   render() {
     return (
       <button className={this.state.btn} onClick={() => this.changeClass()}>
-        text
+        Change class
       </button>
     );
   }
