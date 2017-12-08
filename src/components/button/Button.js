@@ -6,7 +6,7 @@ export class Button extends React.Component {
     this.state = { btn: '' };
   }
 
-  changeClass() {
+  changeClass = () => {
     if (this.state.btn === 'active') {
       this.setState({ btn: '' });
     } else {
@@ -16,7 +16,7 @@ export class Button extends React.Component {
 
   render() {
     return (
-      <button className={this.state.btn} onClick={() => this.changeClass()}>
+      <button className={this.state.btn} onClick={this.changeClass}>
         Change class
       </button>
     );
