@@ -15,7 +15,7 @@ export const TabNav = ({ children, select }) => (
   </nav>
 );
 
-// TabNav.propTypes = {
-//   click: PropTypes.func.isRequired,
-//   list: PropTypes.array.isRequired
-// };
+TabNav.propTypes = {
+  children: PropTypes.array.isRequired,
+  select: PropTypes.func.isRequired
+};

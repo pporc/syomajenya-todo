@@ -13,3 +13,5 @@ export const Navigation = props => (
     </ul>
   </nav>
 );
+
+Navigation.propTypes = { list: PropTypes.array.isRequired };

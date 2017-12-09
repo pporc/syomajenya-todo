@@ -1,35 +1,16 @@
 import { Navigation } from 'components/navigation';
 import { Greeting } from 'components/greeting';
-import { Time } from 'components/time';
+
 import './header.scss';
 
-export class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { show: true };
-  }
-  render() {
-    const { show } = this.state;
-    return (
-      <header className="header">
-        <Navigation
-          list={['Home', 'Products', 'Contacts']}
-        />
+export const Header = () => (
+  <header className="header">
+    <Navigation
+      list={['Home', 'Products', 'Contacts']}
+    />
 
-        <div>
-          { show && <Time />}
-
-          <button
-            onClick={() => this.setState({ show: !show })}
-          >
-            { show ? 'hide' : 'show'}
-          </button>
-        </div>
-
-        <Greeting
-          name="Jenya"
-        />
-      </header>
-    );
-  }
-}
+    <Greeting
+      name="Jenya"
+    />
+  </header>
+);

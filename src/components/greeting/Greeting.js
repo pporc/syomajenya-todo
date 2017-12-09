@@ -12,6 +12,10 @@ const getCreation = () => {
 
 export const Greeting = ({ name }) => (
   <span className="greeting">
-    {getCreation()}, {name || 'User'}
+    {getCreation()}, {name}
   </span>
 );
+
+Greeting.propTypes = { name: PropTypes.string };
+
+Greeting.defaultProps = { name: 'User' };

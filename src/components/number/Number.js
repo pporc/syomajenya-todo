@@ -35,3 +35,8 @@ export const Number = ({ from, to, odd, even }) => (
     </ul>
   </section>
 );
+
+Number.propTypes = {
+  from: PropTypes.number.isRequired,
+  to: PropTypes.number.isRequired
+};
