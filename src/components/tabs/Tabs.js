@@ -3,7 +3,7 @@ import { TabContent, Tab, Tablink, TabNav } from './';
 export class Tabs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { id: 0 };
+    this.state = { id: this.props.selectedIndex || 0 };
   }
 
   clickTab = (id) => {
@@ -19,7 +19,22 @@ export class Tabs extends React.Component {
     const tabContents = tabs.filter(tab => tab.type === TabContent);
 
     return (
-      <TabNav select={this.clickTab}>{navList}</TabNav>
+      <div className="tabs">
+        <TabNav
+          select={this.clickTab}
+          activeIndex={this.state.id}
+        >
+          {navList}
+        </TabNav>
+        {tabContents[this.state.id]}
+      </div>
     );
   }
 }
+
+Tabs.propTypes = {
+  selectedIndex: PropTypes.number,
+  children: PropTypes.array.isRequired
+};
+
+Tabs.defaultProps = { selectedIndex: 0 };

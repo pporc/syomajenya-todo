@@ -5,8 +5,11 @@ export const Navigation = props => (
     <ul>
       {
         props.list.map(item => (
-          <li key={item}>
-            <a href={`/${item.toLowerCase()}`}>{item}</a>
+          <li key={item.name}>
+            <a href={`/${item.name.toLowerCase()}`}>
+              <i className={item.icon} style={{ marginRight: '10px' }} />
+              {item.name}
+            </a>
           </li>
         ))
       }

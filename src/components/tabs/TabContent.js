@@ -1,5 +1,5 @@
-export const TabContent = ({ content }) => (
+export const TabContent = ({ children }) => (
   <section className="tab-content">
-    <p>{content}</p>
+    {children || null}
   </section>
 );

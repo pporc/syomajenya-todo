@@ -1,16 +1,25 @@
 import './tab.scss';
 
-export const TabNav = ({ children, select }) => (
+export const TabNav = ({ children, select, activeIndex }) => (
   <nav className="nav-tab">
     <ul>
-      {children.map((el, index) =>
-        (
-          <li key={index}>
+      {children.map((el, index) => {
+        const Link = el.type;
+        return (
+          <li
+            className={activeIndex === index ? 'active' : ''}
+            key={index}
+          >
             {
-              React.cloneElement(el, { select, index })
+              <Link
+                {...el.props}
+                select={select}
+                index={index}
+              />
             }
           </li>
-        ))}
+        );
+      })}
     </ul>
   </nav>
 );

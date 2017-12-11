@@ -1,6 +1,29 @@
 @import "variables";
 
+* {
+  color: white;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
-	background: $body-bg;
-	margin: 0;
+  background-color: #1bbb9b;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2327d6b3' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0 25px 0 25px;
+}
+
+#app {
+  height: 100%;
+}
+
+.wrapper {
+  max-width: 940px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
