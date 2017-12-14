@@ -1,0 +1,20 @@
+.user *{
+  color: black;
+}
+
+input {
+  border: 0px;
+  margin-bottom: 5px;
+}
+
+input.error {
+  box-shadow: 0 0 5px red;
+}
+
+input.correct {
+  box-shadow: 0 0 5px green;
+}
+
+input[type="submit"]:disabled {
+  background-color: #ff8080;
+}

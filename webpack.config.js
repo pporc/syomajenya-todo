@@ -24,8 +24,7 @@ const plugins = [
     PropTypes: 'prop-types'
   }),
   new CopyWebpackPlugin([
-    ...images.map(ext => ({ from: `**/*/*.${ext}`, to: 'images/[name].[ext]' })),
-    { from: 'assets', to: 'assets' }
+    ...images.map(ext => ({ from: `**/*/*.${ext}`, to: 'images/[name].[ext]' }))
   ])
 ];
 

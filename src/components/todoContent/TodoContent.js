@@ -1,15 +1,21 @@
 import { TodoItem } from './TodoItem';
 import './todoContent.scss';
 
+const tasks = [
+  'Pell potatoes',
+  'Walk the dog',
+  'Feed the cat',
+  'Help sister with lessons',
+  'Write a paper',
+  'Read the article'
+];
+
 export const TodoContent = () => (
   <div className="todoList">
     <ul>
-      <TodoItem task="Pell potatoes" />
-      <TodoItem task="Walk the dog" />
-      <TodoItem task="Feed the cat" />
-      <TodoItem task="Help sister with lessons" />
-      <TodoItem task="Write a paper" />
-      <TodoItem task="Read the article" />
+      {
+        tasks.map((task, index) => <TodoItem key={index} task={task} />)
+      }
     </ul>
     <div className="button -green center">Add new task</div>
   </div>

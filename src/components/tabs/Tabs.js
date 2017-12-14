@@ -3,11 +3,15 @@ import { TabContent, Tab, Tablink, TabNav } from './';
 export class Tabs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { id: this.props.selectedIndex || 0 };
+    this.state = { id: 0 };
   }
 
   clickTab = (id) => {
     this.setState({ id });
+  }
+
+  componentWillReceiveProps = () => {
+    this.setState({ id: this.props.selectedIndex });
   }
 
   render() {
