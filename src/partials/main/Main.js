@@ -1,4 +1,4 @@
-import { Content } from 'components/content';
+import { Content } from 'partials/content';
 
 import './main.scss';
 

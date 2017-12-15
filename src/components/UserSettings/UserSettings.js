@@ -21,7 +21,7 @@ export class UserSettings extends React.Component {
           User
         </a>
         <div className="userModal" style={{ display: display === true ? 'flex' : 'none' }}>
-          <a href="#">Propfile</a>
+          <a href="#">Profile</a>
           <a href="#">Log out</a>
         </div>
       </div>

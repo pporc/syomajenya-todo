@@ -10,6 +10,12 @@ export class Tabs extends React.Component {
     this.setState({ id });
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    if (this.props.selectedIndex !== nextProps.selectedIndex) {
+      this.setState({ id: nextProps.selectedIndex });
+    }
+  }
+
   render() {
     const tabs = this.props.children
       .filter(child => child.type === Tab)
@@ -17,7 +23,6 @@ export class Tabs extends React.Component {
 
     const navList = tabs.filter(tab => tab.type === Tablink);
     const tabContents = tabs.filter(tab => tab.type === TabContent);
-
     return (
       <div className="tabs">
         <TabNav
