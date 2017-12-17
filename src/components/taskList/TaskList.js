@@ -7,7 +7,7 @@ const date = new Date();
 const getWeek = () => {
   const days = [];
   const dt = new Date();
-  const day = dt.getDay() - 1;
+  const day = dt.getDay() === 0 ? 6 : dt.getDay() - 1;
   const dayNumber = dt.getDate();
   const thisMonday = dayNumber - day;
   const formatter = new Intl.DateTimeFormat('en', {

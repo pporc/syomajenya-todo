@@ -7,7 +7,7 @@ export const Navigation = props => (
         props.list.map(item => (
           <li key={item.name}>
             <a href={`/${item.name.toLowerCase()}`}>
-              <i className={item.icon} style={{ marginRight: '10px' }} />
+              <i className={item.icon} />
               {item.name}
             </a>
           </li>
