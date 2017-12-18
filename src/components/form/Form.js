@@ -6,8 +6,8 @@ export class Form extends React.Component {
 
     this.fields = [
       { label: 'email', reg: /^\w+@\w+\.[a-z]{2,}$/ },
-      { label: 'name', reg: /^[^ ]{3,20}$/ },
-      { label: 'surname', reg: /^[^ ]{3,20}$/ },
+      { label: 'firstname', reg: /^[^ ]{3,20}$/ },
+      { label: 'secondname', reg: /^[^ ]{3,20}$/ },
       { label: 'password', reg: /^[^ ]{6,20}$/, secure: true },
       { label: 'repeat password', reg: /^[^ ]{6,20}$/, secure: true }
     ];
@@ -25,8 +25,9 @@ export class Form extends React.Component {
     const field = this.fields[index];
     const { name, value } = e.target;
     const stateField = this.state[name];
+    const isRepeatPasswordShown = !this.props.exclude.includes('repeat password');
 
-    if (name.includes('password') && !stateField.error) {
+    if (isRepeatPasswordShown && name.includes('password') && !stateField.error) {
       const fields = this.fields.filter(field => field.label.includes('password'));
       const names = fields.map(field => field.label);
       let error = '';
@@ -40,7 +41,6 @@ export class Form extends React.Component {
       return;
     }
 
-
     if (!field.reg.test(value)) {
       stateField.error = `${field.label} is wrong!`;
     } else {
@@ -53,11 +53,18 @@ export class Form extends React.Component {
   saveUser = (e) => {
     const data = {};
 
-    for (let key in this.state) {
-      data[key] = this.state[key].value;
-    }
+    this.fields
+      .filter(this.filterExcluded)
+      .forEach((field) => {
+        if (!field.label.includes('repeat')) {
+          data[field.label] = this.state[field.label].value;
+        }
+      });
 
     console.log(data);
+
+    this.props.submit(data);
+
     e.preventDefault();
   }
 
@@ -74,17 +81,24 @@ export class Form extends React.Component {
   }
 
   getDisabledState() {
-    for (let key in this.state) {
-      if (this.state[key].error || this.state[key].error === undefined) {
-        return true;
-      }
-    }
+    return this.fields
+      .filter(this.filterExcluded)
+      .some((field) => {
+        const fieldFromState = this.state[field.label];
 
-    return false;
+        if (fieldFromState.error || fieldFromState.error === undefined) {
+          return true;
+        }
+      });
+  }
+
+  filterExcluded = (field) => {
+    return !this.props.exclude.find(name => field.label === name);
   }
 
   render() {
-    const { state, fields } = this;
+    const { state, fields, props } = this;
+    const { exclude, disabled } = props;
 
     return (
       <form
@@ -92,28 +106,36 @@ export class Form extends React.Component {
         onSubmit={this.saveUser}
       >
         <ul>
-          {fields.map((field, index) => (
-            <li key={field.label}>
-              <input
-                type={field.secure ? 'password' : 'text'}
-                name={field.label}
-                className={this.getValidClass(state[field.label].error)}
-                placeholder={field.label.toUpperCase()}
-                value={state[field.label].value}
-                onChange={this.handleField}
-                onBlur={e => this.setFieldState(e, index)}
-              />
-              {state[field.label].error && <span>{state[field.label].error}</span>}
-            </li>))}
+          {fields
+            .filter(this.filterExcluded)
+            .map((field, index) => (
+              <li key={field.label}>
+                <input
+                  type={field.secure ? 'password' : 'text'}
+                  name={field.label}
+                  className={this.getValidClass(state[field.label].error)}
+                  placeholder={field.label.toUpperCase()}
+                  value={state[field.label].value}
+                  disabled={disabled.includes(field.label)}
+                  onChange={this.handleField}
+                  onBlur={e => this.setFieldState(e, index)}
+                />
+                {state[field.label].error && <span>{state[field.label].error}</span>}
+              </li>))}
         </ul>
 
         <input
           type="submit"
-          value="Save"
+          value="Ok"
           disabled={this.getDisabledState()}
         />
       </form>
     );
   }
-
 }
+
+Form.defaultProps = {
+  exclude: [],
+  disabled: [],
+  submit: _ => _
+};

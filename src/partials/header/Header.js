@@ -5,7 +5,7 @@ import './header.scss';
 
 const list = [
   { name: 'Home', icon: 'fas fa-home fa-sm' },
-  { name: 'Task list', icon: 'fas fa-tasks fa-sm' },
+  { name: 'Tasks', icon: 'fas fa-tasks fa-sm' },
   { name: 'Contacts', icon: 'far fa-comments fa-sm' }
 ];
 
