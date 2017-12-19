@@ -1,14 +1,7 @@
-// import { TaskList } from 'components/taskList';
-// import { Form } from 'components/form';
-
 import './content.scss';
 
-export const Content = () => (
+export const Content = props => (
   <section className="content">
-    {/* <TaskList /> */}
-    {/* <Form
-      exclude={['firstname']}
-      disavled={['email']}
-    /> */}
+    {props.children}
   </section>
 );

@@ -1,6 +1,7 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { TaskList } from '../components/taskList';
-import { Main } from '../partials/main';
+import { TaskList } from 'components/taskList';
+import { Loader } from 'components/loader';
+import { Main } from 'partials/main';
 import { Login } from './login';
 
 export class Pages extends React.Component {
@@ -14,7 +15,7 @@ export class Pages extends React.Component {
     this.setState({ isLoading: true });
     setTimeout(() => {
       this.setState({ isLogin: true });
-    }, 1000);
+    }, 3000);
   }
 
   render() {
@@ -34,7 +35,7 @@ export class Pages extends React.Component {
     return (
       <Switch>
         <Route path="/" exact component={Main} />
-        <Route path="/home" exact component={Main} />
+        <Route path="/home" exact component={Loader} />
         <Route path="/tasks" component={TaskList} />
 
         <Redirect from="/login" to="/" />
