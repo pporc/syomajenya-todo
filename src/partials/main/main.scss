@@ -3,6 +3,8 @@
 .main {
   display: inline-block;
   background-color: $bg-dark;
+  padding: 10px;
   height: 100%;
+  min-height: 200px;
   flex-grow: 1;
 }

@@ -84,7 +84,7 @@ export const Loader = () => (
         cy="75"
         r="60"
         fill="transparent"
-        stroke="purple"
+        stroke="#ff0"
         strokeWidth="6"
         strokeLinecap="round"
         strokeDasharray="385"

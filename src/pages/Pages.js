@@ -1,8 +1,5 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { TaskList } from 'components/taskList';
-import { Loader } from 'components/loader';
-import { Main } from 'partials/main';
-import { Login } from './login';
+import { NotAuthorized } from './notAuthorized';
+import { Authorized } from './authorized';
 
 export class Pages extends React.Component {
   constructor(p) {
@@ -21,27 +18,13 @@ export class Pages extends React.Component {
   render() {
     if (!this.state.isLogin) {
       return (
-        <Switch>
-          <Route
-            path="/login"
-            render={() => <Login login={this.onLogin} isLoading={this.state.isLoading} />}
-          />
-          <Redirect to="/login" />
-        </Switch>
+        <NotAuthorized login={this.onLogin} isLoading={this.state.isLoading} />
       );
     }
 
 
     return (
-      <Switch>
-        <Route path="/" exact component={Main} />
-        <Route path="/home" exact component={Loader} />
-        <Route path="/tasks" component={TaskList} />
-
-        <Redirect from="/login" to="/" />
-
-        <Route render={({ location }) => <h1>Requested page {location.pathname} not found</h1>} />
-      </Switch>
+      <Authorized />
     );
   }
 }

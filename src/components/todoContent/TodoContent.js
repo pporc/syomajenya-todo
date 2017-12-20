@@ -1,3 +1,4 @@
+import { Button } from 'components/button';
 import { TodoItem } from './TodoItem';
 import './todoContent.scss';
 
@@ -17,6 +18,6 @@ export const TodoContent = () => (
         tasks.map((task, index) => <TodoItem key={index} task={task} />)
       }
     </ul>
-    <div className="button -green center">Add new task</div>
+    <Button value="Add new tasks" styles="green" type="submit" />
   </div>
 );

@@ -42,7 +42,7 @@ export class Form extends React.Component {
     }
 
     if (!field.reg.test(value)) {
-      stateField.error = `${field.label} is wrong!`;
+      stateField.error = `${name} is wrong!`;
     } else {
       stateField.error = '';
     }
@@ -120,11 +120,12 @@ export class Form extends React.Component {
                   onChange={this.handleField}
                   onBlur={e => this.setFieldState(e, index)}
                 />
-                {state[field.label].error && <span>{state[field.label].error}</span>}
+                {state[field.label].error && <span className="tooltip">{state[field.label].error}</span>}
               </li>))}
         </ul>
 
         <input
+          className="button center regular"
           type="submit"
           value="Ok"
           disabled={this.getDisabledState()}

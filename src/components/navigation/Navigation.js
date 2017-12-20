@@ -8,8 +8,9 @@ export const Navigation = props => (
         props.list.map(item => (
           <li key={item.name}>
             <NavLink
-              to={`/${item.name.toLowerCase()}`}
-              activeClassName="active"
+              exact
+              to={item.url}
+              activeClassName="activeURL"
             >
               <i className={item.icon} style={{ marginRight: '10px' }} />
               {item.name}

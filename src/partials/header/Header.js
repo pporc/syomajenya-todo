@@ -4,9 +4,9 @@ import { UserSettings } from 'components/userSettings';
 import './header.scss';
 
 const list = [
-  { name: 'Home', icon: 'fas fa-home fa-sm' },
-  { name: 'Tasks', icon: 'fas fa-tasks fa-sm' },
-  { name: 'Contacts', icon: 'far fa-comments fa-sm' }
+  { name: 'Home', url: '/', icon: 'fas fa-home fa-sm' },
+  { name: 'Task list', url: '/tasks', icon: 'fas fa-tasks fa-sm' },
+  { name: 'Contacts', url: '/contacts', icon: 'far fa-comments fa-sm' }
 ];
 
 export const Header = () => (
