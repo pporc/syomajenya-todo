@@ -8,9 +8,9 @@ export class Todos extends React.Component {
   loadData = () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
-      .then(todos => {
+      .then((todos) => {
         this.originTodos = todos;
-        this.setState({ todos: todos })
+        this.setState({ todos });
       });
   }
 
@@ -21,7 +21,7 @@ export class Todos extends React.Component {
   filterTodos = (e) => {
     if (e.target.value.length > 1) {
       this.setState({
-        todos:  this.originTodos.filter(value => value.title.indexOf(e.target.value) !== -1)
+        todos: this.originTodos.filter(value => value.title.indexOf(e.target.value) !== -1)
       });
     } else {
       this.setState({ todos: this.originTodos });

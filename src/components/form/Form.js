@@ -92,9 +92,7 @@ export class Form extends React.Component {
       });
   }
 
-  filterExcluded = (field) => {
-    return !this.props.exclude.find(name => field.label === name);
-  }
+  filterExcluded = field => !this.props.exclude.find(name => field.label === name);
 
   render() {
     const { state, fields, props } = this;
