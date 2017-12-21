@@ -1,15 +1,25 @@
-export const Tablink = ({ title, index, select }) => {
+export const Tablink = ({ title, date, index, select }) => {
   const onClick = (e) => {
     select(index);
     e.preventDefault();
   };
 
   return (
-    <a
-      href="#"
-      onClick={onClick}
-    >
-      {title}
-    </a>
+    <div className="tab">
+      <a
+        href="#"
+        onClick={onClick}
+        className="day"
+      >
+        {title}
+      </a>
+      <a
+        href="#"
+        onClick={onClick}
+        className="date"
+      >
+        {date}
+      </a>
+    </div>
   );
 };

@@ -3,8 +3,11 @@ const webpack = require('webpack');
 const htmlPlugin = require('html-webpack-plugin');
 const textPlugin = require('extract-text-webpack-plugin');
 const args = require('yargs').argv;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const styleLoader = ['style-loader', 'css-loader', 'sass-loader'];
+
+const images = ['jpg', 'jpeg', 'png', 'gif', 'svg'];
 
 const plugins = [
   new htmlPlugin({
@@ -19,7 +22,10 @@ const plugins = [
   new webpack.ProvidePlugin({
     React: 'react',
     PropTypes: 'prop-types'
-  })
+  }),
+  new CopyWebpackPlugin([
+    ...images.map(ext => ({ from: `**/*/*.${ext}`, to: 'images/[name].[ext]' })),
+  ])
 ];
 
 module.exports = {

@@ -1,12 +1,30 @@
 .main-nav {
-	ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  ul {
     display: flex;
-    margin: 0;
     padding: 0;
+    margin: 0;
     list-style: none;
 
     li {
-      margin: 0 10px 0 0;
+      margin-right: 20px;
+
+      a {
+        margin-left: 10px;
+        font-size: 1.5em;
+        text-decoration: none;
+
+        svg {
+          margin-right: 10px;
+        }
+      }
+
+      a:hover {
+        border-bottom: 2px solid white;
+
+      }
     }
   }
 }

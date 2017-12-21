@@ -1,8 +1,10 @@
 @import "../../variables";
 
 .header {
-	background-color: $header-bg;
-	padding: $common-paddings;
-	display: flex;
-	justify-content: space-between;
+  background-color: $bg-dark;
+  padding: $common-paddings;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  min-height: 70px;
 }

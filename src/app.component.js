@@ -5,7 +5,7 @@ import { Footer } from 'partials/footer';
 import './app.scss';
 
 export const App = (
-  <div>
+  <div className="wrapper">
     <Header />
     <Main />
     <Footer />

@@ -1,0 +1,19 @@
+@import '../../variables.scss';
+
+.userSettings {
+  a {
+    text-decoration: none;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  .userModal {
+    flex-direction: column;
+    position: absolute;
+    background-color: $bg-light;
+    padding: $common-paddings;
+    margin-top: 10px;
+  }
+}
