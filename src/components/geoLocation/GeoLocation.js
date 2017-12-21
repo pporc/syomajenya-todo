@@ -1,25 +1,66 @@
 export class GeoLocation extends React.Component {
   constructor() {
     super();
-    this.state = { location: null };
+    this.state = {
+      longitude: 0,
+      latitude: 0
+    };
   }
 
-  location = () => {
+  componentDidMount = () => {
+    this.getMyLocation();
+  }
+
+  getMyLocation = () => {
     navigator.geolocation.getCurrentPosition((info) => {
-      this.setState({ location: info });
+      this.setState({
+        longitude: info.coords.longitude,
+        latitude: info.coords.latitude
+      });
     });
   }
 
+  location = (e) => {
+    if (e.target.value.length === 0) {
+      this.getMyLocation();
+    }
+    
+    if (e.target.name === 'longitude') {
+      const value = e.target.value > 180 ? 180 :
+        e.target.value < -180 ? -180 : e.target.value;
+      this.setState({ longitude: value });
+    }
+
+    if (e.target.name === 'latitude') {
+      const value = (e.target.value > 90) ? 90 :
+        (e.target.value < -90) ? -90 :
+        e.target.value;
+
+      this.setState({ latitude: value });
+    }
+  }
+
   render() {
-    const { location } = this.state;
+    const { longitude, latitude } = this.state;
+    const src = `http://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}
+      &zoom=12&size=300x300&sensor=false&language=ru&markers=color:blue|label:S|${latitude},${longitude}`;
     return (
       <div>
-        <button onClick={this.location}>Where I</button>
-        { location &&
-          <p>
-            {`latitude: ${location.coords.latitude} longitude: ${location.coords.longitude}`}
-          </p>
-        }
+        <div>
+          <input
+            type="text"
+            name="longitude"
+            value={longitude}
+            onChange={this.location}
+          />
+          <input
+            type="text"
+            name="latitude"
+            value={latitude}
+            onChange={this.location}
+          />
+        </div>
+        <img src={src} alt="img" />
       </div>
     );
   }
