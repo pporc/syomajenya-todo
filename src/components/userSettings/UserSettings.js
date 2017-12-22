@@ -14,10 +14,7 @@ export class UserSettings extends React.Component {
           href="#"
           onClick={() => this.setState({ display: !display })}
         >
-          <i
-            className="fas fa-user-circle"
-            style={{ marginRight: '10px' }}
-          />
+          <i className="fas fa-user-circle" />
           User
         </a>
         <div className="userModal" style={{ display: display === true ? 'flex' : 'none' }}>

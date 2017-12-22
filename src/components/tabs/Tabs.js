@@ -21,7 +21,6 @@ export class Tabs extends React.Component {
 
     const navList = tabs.filter(tab => tab.type === Tablink);
     const tabContents = tabs.filter(tab => tab.type === TabContent);
-
     return (
       <div className="tabs">
         <TabNav
