@@ -1,0 +1,71 @@
+@import '../../variables.scss';
+
+.user {
+  ul {
+    padding: 0;
+    margin-left: 10px;
+
+    li {
+      list-style-type: none;
+      margin-bottom: 10px;
+    }
+  }
+
+  input {
+    &::-webkit-input-placeholder {
+      color: white;
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: inset 0 0 0 50px $bg-dark !important;
+      -webkit-text-fill-color: #fff !important;
+      color: #999 !important;
+    }
+
+    &.error {
+      border-bottom: 1px solid #ff8080;
+    }
+    
+    &.correct {
+      border-bottom: 1px solid rgb(0, 255, 0);
+    }
+    
+    &[type="submit"]:disabled {
+      background-color: #818181;
+      opacity: 0.8;
+    }
+    
+    &:focus {
+      color: #fff;
+      background-color: transparent;
+      outline: none;
+      border: 0;
+      border-bottom: 1px solid #fff;
+    }
+    
+    & {
+      color: #fff;
+      background-color: transparent;
+      outline: none;
+      border: 0;
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  .tooltip {
+    background: #ff8080;
+    margin-left: 10px;
+    border-radius: 3px;
+    padding: 3px;
+    position: relative;
+    color: black;
+   }
+   .tooltip::after {
+    content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    left: -18px; /* Положение треугольника */
+    top: 2px;
+    border: 10px solid transparent;
+    border-right: 8px solid #ff8080;
+   }
+}

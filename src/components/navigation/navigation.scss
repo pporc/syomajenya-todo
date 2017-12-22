@@ -20,11 +20,10 @@
           margin-right: 10px;
         }
       }
-
-      a:hover {
-        border-bottom: 2px solid white;
-
-      }
     }
   }
+}
+
+.activeURL {
+  border-bottom: 2px solid white;
 }

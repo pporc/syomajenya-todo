@@ -1,9 +1,7 @@
-import { Content } from 'partials/content';
-
 import './main.scss';
 
-export const Main = () => (
+export const Main = props => (
   <main className="main">
-    <Content />
+    {props.children}
   </main>
 );

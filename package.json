@@ -20,7 +20,9 @@
   "homepage": "https://github.com/pporc/syomajenya-todo#readme",
   "dependencies": {
     "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react-dom": "^16.1.1",
+    "react-modal": "^3.1.8",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
