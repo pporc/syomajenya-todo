@@ -21,20 +21,21 @@ export class GeoLocation extends React.Component {
   }
 
   location = (e) => {
-    if (e.target.value.length === 0) {
+    const { name, value } = e.target;
+    if (value.length === 0) {
       this.getMyLocation();
     }
-    
-    if (e.target.name === 'longitude') {
-      const value = e.target.value > 180 ? 180 :
-        e.target.value < -180 ? -180 : e.target.value;
+
+    if (name === 'longitude') {
+      const value = value > 180 ? 180 :
+        value < -180 ? -180 : value;
       this.setState({ longitude: value });
     }
 
     if (e.target.name === 'latitude') {
-      const value = (e.target.value > 90) ? 90 :
-        (e.target.value < -90) ? -90 :
-        e.target.value;
+      const value = (value > 90) ? 90 :
+        (value < -90) ? -90 :
+        value;
 
       this.setState({ latitude: value });
     }
